@@ -1,2 +1,31 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<div class="home">
+
+    <%= image_tag "autism.png", style: 'height: 50vh', class: "bg-image" %>
+
+
+
+<div class="site-header">
+  <h1 class="site-title">Autism Friend Finder</h1>
+  <h3 class="site-subtitle mb-5"><strong>Creating Special Connections</strong></h3>
+    <%# create a dropdown with list of cities available for above input %>
+    <%# <input class="form-control mr-sm-2 home-search" type="search" placeholder="Enter Date" aria-label="Search"> %>
+    <%# create a calendar where you can select one date for above input %
+   <%= form_tag superheros_path, method: :get do %>
+  <div>
+    <%= form_tag playmates_path, class: "form-inline", method: :get do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control search-input mr-1 radius-1px",
+      placeholder: "City"
+    %>
+    <%= submit_tag "Search Friends", class: "btn home-search-btn mr-2"  %>
+    <% end %>
+   </div>
+
+</div>
+</div>
+
+
+
+

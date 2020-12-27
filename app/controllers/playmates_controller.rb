@@ -1,9 +1,11 @@
 class PlaymatesController < ApplicationController
 
   def index
+    @playmates = Playmate.all
   end
 
   def show
+    @playmate = Playmate.find(params[:id])
 
   end
 
@@ -13,8 +15,13 @@ class PlaymatesController < ApplicationController
   end
 
   def create
-    @playmate = Playmate.new(playmate_params)
-    @playmate.save
+    @playmate = Playmate.new(strong_params)
+    @playmate.user = current_user
+    if @playmate.save
+      redirect_to playmate_path(@playmate)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -26,6 +33,11 @@ class PlaymatesController < ApplicationController
 
   def destroy
 
+  end
+
+  private
+    def strong_params
+    params.require(:playmate).permit(:name, :city, :description, :age, :interests)
   end
 
 end

@@ -1,0 +1,22 @@
+ <%= simple_form_for @playmate do |f| %>
+    <div class="form-group">
+      <div class="field">
+        <%= f.input :name, class: "form-control" %>
+      </div>
+      <div class="field">
+        <%= f.input :city, class: "form-control" %>
+      </div>
+      <div class="field">
+        <%= f.input :age, class: "form-control" %>
+      </div>
+      <div class="field">
+        <%= f.input :interests, class: "form-control" %>
+      </div>
+      <div class="field">
+        <%= f.input :description, class: "form-control", as: :text, :input_html => { class: 'test', :cols => 5, :rows => 6 } %>
+      </div>
+      <div class="field">
+        <%= f.button :submit, class: "btn btn-block dark-blue-btn" %>
+      </div>
+    </div>
+<% end %>
